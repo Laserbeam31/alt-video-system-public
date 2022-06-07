@@ -21,12 +21,15 @@ power supply has its low-voltage output wires intercepted such that the switched
 the supply's low-voltage side, and also such that power is sent (over a separate pair of Cat5e conductors) to light up the rack button's internal
 LED when the switch is turned on and the downstream balun therefore receiving power.
 
+As of 07/06/2022, only one rack button is connected to one modified balun power supply: that of tha catwalk monitors. 
+The other button in the rack panel is a spare to allow
+for future expansion if another modified balun power supply is assembled.
+
 Cat5e wiring standard for the rack buttons and modified balun PSU(s):
 ---------------------------------------------------------------------
 
 +-----------------+-------------------+
 | Name            | Cat5e Colours     |
-+-----------------+-------------------+
 | Switched lines  | Brown/green       |
 | LED power       | Orange(+)/blue(-) |
 +-----------------+-------------------+
