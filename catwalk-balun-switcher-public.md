@@ -29,6 +29,7 @@ Cat5e wiring standard for the rack buttons and modified balun PSU(s):
 ---------------------------------------------------------------------
 
 | Name            | Cat5e Colours     |
+|-----------------|-------------------|
 | Switched lines  | Brown/green       |
 | LED power       | Orange(+)/blue(-) |
 
