@@ -29,5 +29,16 @@ For more information on the unit's capabilities, see the ZMX multiplexer manual 
 Matrix switcher:
 ----------------
 
+In essence, the matrix switcher can be thought of as an "electronic patch panel". It takes a series of different composite video inputs, and
+can route each input, in its entirety, to one or more of its different outputs.
+
+The matrix input and output connections are brought out on the MUSA patch panel.
+
+To route a given input to certain output(s), press the number corresponding to the input on the top row of matrix buttons. When this button lights up,
+sequentially press the buttons on the row below whose numbers correspond to the outputs to which the input in question is to be routed. To save this
+output state, press the "Enter" button to the right of the unit.
+
 MUSA patch:
 -----------
+
+The MUSA patch 
