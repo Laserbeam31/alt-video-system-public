@@ -16,7 +16,8 @@ There are two buttons fitted in a 1U plate in the BTS rack. Each button is elect
 the Cat5e patch, it is possible to link the buttons to any other Cat5e port in the ALT. Each button has electrical links to its 5V power LED, and
 its actual swiitched terminals.
 
-At the other end, a modified balun power supply connects into a Cat5e port somewhere else in the ALT (typically only on the catwalk). This modified
+At the other end, a modified balun power supply connects into a Cat5e port somewhere else in the ALT (typically only on the catwalk) which
+is in turn patched back to the BTS rack buttons through the building patch. This modified
 power supply has its low-voltage output wires intercepted such that the switched terminals of the button in the rack are able to break the circuit on
 the supply's low-voltage side, and also such that power is sent (over a separate pair of Cat5e conductors) to light up the rack button's internal
 LED when the switch is turned on and the downstream balun therefore receiving power.
