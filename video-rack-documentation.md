@@ -51,14 +51,14 @@ of the front of the rack.
 
 The following important links are in the MUSA patch:
 
-- Matrix in/out. For patching inputs and outputs to multiple places using the matrix switcher. See above;
+- Matrix in/out ports. For patching inputs and outputs to multiple places using the matrix switcher. See above;
 - Multiplexer. This takes in the feed from the stage camera baluns directly, multiplexes it, and outputs the multiplexed feeds, along
   with identical "copies" of the incoming individual camera feeds, through to the MUSA patch panel;
 - Baluns. Cat5 composite and VGA baluns, installed inside the rack, can have video sent to/from them from the MUSA patch. 
   The Cat5 connections on said baluns are brought out to Cat5 ports on the BTS rack's network patch. This is particularly
   useful if patching in a camera or monitor in an unusual location: the remote camera/monitor can be installed with a suitable balun next to it -
   which then runs its signal over the installed Cat5 cabling back to the BTS rack and its corresponding internal baluns. It is important to note that
-  whilst the composite-over-Cat5 baluns can be used for eiher transmitting or receiving over  Cat5, the same is not true for the VGA baluns. All the
+  whilst the composite-over-Cat5 baluns can be used for eiher transmitting or receiving over Cat5, the same is not true for the VGA baluns. All the
   VGA balun outputs on the BTS rack are _transmit only_. A corresponding VGA _receiver_ balun must therefore be used at the other end of their
   corresponding patched Cat5 run through the building.
   
@@ -69,7 +69,7 @@ MUSA inputs, to achieve this signal conversion.
 Links to Box 203
 ----------------
 
-Box 203, colloquially referred to as the "Edge Rack" contains a composite video distribution amplifier (DA). This is a simple device which takes in
+Box 203, colloquially referred to as the "Edge Rack", contains a composite video distribution amplifier (DA). This is a simple device which takes in
 a composite feed and amplifies it to multiple separate outputs, for patching to different destinations. Using the links between the BTS MUSA patch
 and the Box 203 MUSA patch, it is possible to make use of the DA.
 
