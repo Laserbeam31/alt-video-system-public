@@ -38,7 +38,7 @@ To route a given input to certain output(s), press the number corresponding to t
 sequentially press the buttons on the row below whose numbers correspond to the outputs to which the input in question is to be routed. To save this
 output state, press the "Enter" button to the right of the unit.
 
-For more information, see the extron crosspoint matrix manual in this repository.
+For more information, see the Extron crosspoint matrix manual in this repository.
 
 MUSA patch:
 -----------
