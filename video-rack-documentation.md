@@ -68,8 +68,8 @@ Technically speaking, the Cat5 VGA transmitter baluns in the rack must take in a
 multiplexer, matrix switcher, and MUSA patch panel. There are therefore composite-VGA conversion boxes between the VGA baluns and their respective
 MUSA inputs, to achieve this signal conversion.
 
-Links to Box 203
-----------------
+Links to Box 203:
+-----------------
 
 Box 203, colloquially referred to as the "Edge Rack", contains a composite video distribution amplifier (DA). This is a simple device which takes in
 a composite feed and amplifies it to multiple separate outputs, for patching to different destinations. Using the links between the BTS MUSA patch
