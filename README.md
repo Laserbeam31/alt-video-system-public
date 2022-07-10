@@ -14,7 +14,8 @@ List of gear covered by this document:
 2. Extron CrossPoint video matrix switcher;
 3. Stage cameras;
 4. ZMX multiplexer;
-5. Video Rack overall layout.
+5. Qvis DVR;
+6. Video Rack overall layout.
 
 Formatting conventions:
 -----------------------
