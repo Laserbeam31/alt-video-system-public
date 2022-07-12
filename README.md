@@ -15,7 +15,8 @@ List of gear covered by this document:
 3. Stage cameras;
 4. ZMX multiplexer;
 5. Qvis DVR;
-6. Video Rack overall layout.
+6. Video Rack overall layout;
+7. Building-wide Video distribution amplifiers (DAs).
 
 Formatting conventions:
 -----------------------
