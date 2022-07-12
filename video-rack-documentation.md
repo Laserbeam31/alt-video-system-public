@@ -68,6 +68,47 @@ Technically speaking, the Cat5 VGA transmitter baluns in the rack must take in a
 multiplexer, matrix switcher, and MUSA patch panel. There are therefore composite-VGA conversion boxes between the VGA baluns and their respective
 MUSA inputs, to achieve this signal conversion.
 
+Qvis DVR:
+---------
+
+The Qvis DVR in the BTS rack takes in four composite video inputs, multiplexes them into a 4x4 grid on a single output, and sends this
+multiplexed output over VGA and composite connections. The advantage of a VGA output connection is that, even with a multiplexed grid, each constituent
+composite feed in the grid is displayed at its full resolution. This is because the overall VGA picture resolution is higher than composite video resolution.
+
+Importantly, the DVR can send any of its incoming composite video feeds as an RTSP stream over IP 
+(see: https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) by means of its Ethernet port.
+
+**Connections:**
+
+|   Connection type   |   Number    |          Use                                                                                                              |                     Connection point                                |
+|---------------------|-------------|---------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| Composite input     | 4           | Ingest a single composite video feed                                                                                      | MUSA patch panel (bottom row)                                       |
+| Composite output    | 1           | Output a composite multiplexed view of the four inputs. This is of lower resolution than the equivalent VGA connection    | MUSA patch panel (top row)                                          |
+| VGA output          | 1           | Output a multiplexed view of the four inputs. Being VGA, this output can show each consituent feed in its full resolution | Cat5 patch panel (_via hidden black passive VGA-Cat5 sender balun_) |
+| Ethernet output     | 1           | Network access. Used for distributing RTSP streams (see above) and also for accessing the unit's web control panel        | Cat5 patch panel                                                    |
+
+NB: The VGA and composite outputs always show the same feed, just at different resolutions.
+
+**Networking:**
+
+The unit generates a separate RTSP stream for each of its four input connections.
+
+An easy way to view the network RTSP stream is by using VLC on a computer on the same network as the DVR. 
+In VLC, select "Open Network Stream" and enter the following address:
+
+`rtsp://[username]:[password]@XXX.XXX.XXX.XXX:554/cam/realmonitor?channel=Y&subtype=0`
+
+Where `XXX.XXX.XXX.XXX` is the IP address of the DVR on the particular network to which it is connected, `[username]` is the system username,
+`[password]` is the system password, and `Y` is the number of the composite input to be displayed.
+
+Using the BTS Rack's Cat5 patch - through which all the Cat5-capable video gear is patched - the DVR's Ethernet connection may be connected either
+to the BTS VLAN or the BUCS "Docking" network. The latter is very useful since it is effectively the same network as Eduroam, thus meaning that any device
+connected to the Eduroam WiFi can view the RTSP stream from the DVR, when it is also connected to Docking.
+
+Whereas the BTS VLAN has no access controls, devices connected to Docking must have their MAC address authorised on ClearPass before a connection
+is established. This is best done on an individual basis. As of July 2022, the DVR's Ethernet connection is authorised under John Lucas's BUCS ID.
+It is important to note that personal BUCS device authorizations expire after a year.
+
 Links to Box 203:
 -----------------
 
