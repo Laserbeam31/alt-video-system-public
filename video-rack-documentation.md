@@ -14,17 +14,20 @@ In its usual mode of operation, the multiplexer outputs a 4x4 grid of the main s
 quarter of the multiplexed output grid is digitallly annotated by the multiplexer. The arrangement/number of video squares in the grid
 can be changed if so desired.
 
-The composite video feeds from the cameras are fed directly into the back of the multiplexer on composite inputs dervied (via baluns) from the dedicated 
-stage-to-proj Cat5 run.
+The composite video feeds from the stage cameras are fed directly into the back of the multiplexer on composite inputs dervied (via baluns) from the 
+dedicated stage-to-proj Cat5 camera cable.
 The multiplexer has "pass through" connections for these camera feeds, which means that each camera's connection is also paralleled straight into the MUSA
 patch (see below) for camera-specific patching.
+
+Two more additional inputs to the multiplexer are also brought through directly to the MUSA patch, so that custom feeds may be inputted for multiplexing 
+into a larger grid if so desired.
 
 The multiplexer's combined output is fed into a connection on the MUSA patch, so that this output can be routed to where it is needed.
 
 The unit also has advanced functionality for features better suited to its intended use as a processing station for CCTV cameras. These include the
 ability to trigger a VCR, as well as the ability to input/output signals from an alarm system, and remote control over RS-232/RS-485.
 
-For more information on the unit's capabilities, see the ZMX multiplexer manual in this repository.
+For more information on the unit's capabilities, see the "zmx_multiplexer_manual.pdf" file in this repository.
 
 Matrix switcher:
 ----------------
@@ -38,35 +41,30 @@ To route a given input to certain output(s), press the number corresponding to t
 sequentially press the buttons on the row below whose numbers correspond to the outputs to which the input in question is to be routed. To save this
 output state, press the "Enter" button to the right of the unit.
 
-For more information, see the Extron crosspoint matrix manual in this repository.
+For more information, see the "extron_crosspoint_matrix_manual.pdf" file in this repository.
 
 MUSA patch:
 -----------
 
 The MUSA patch is the main means of physically patching the video links from around the theatre to one another, including through devices such as the 
 multiplexer
-and/or matrix switcher. Each camera, composite cable run, balun, and other  rack video handling appliance, has at least one connection on the MUSA
+and/or matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at least one connection on the MUSA
 patch to allow it to be dynamically interfaced with the rest of the system.
 
-For commonly-used inter-port links on the MUSA patch, the "U"-shaped adapters are used, since they are neater than leaving MUSA patch leads hanging out
-of the front of the rack.
+For commonly-used inter-port links on the MUSA patch, the "U"-shaped adapters are used where possible, since they are neater than leaving MUSA patch leads 
+hanging out of the front of the rack.
 
 The following important links are in the MUSA patch:
 
 - Matrix in/out ports. For patching inputs and outputs to multiple places using the matrix switcher. See above;
-- Multiplexer. This takes in the feed from the stage camera baluns directly, multiplexes it, and outputs the multiplexed feeds, along
-  with identical "copies" of the incoming individual camera feeds, through to the MUSA patch panel;
-- Baluns. Cat5 composite and VGA baluns, installed inside the rack, can have video sent to/from them from the MUSA patch. 
-  The Cat5 connections on said baluns are brought out to Cat5 ports on the BTS rack's network patch. This is particularly
-  useful if patching in a camera or monitor in an unusual location: the remote camera/monitor can be installed with a suitable balun next to it -
-  which then runs its signal over the installed Cat5 cabling back to the BTS rack and its corresponding internal baluns. It is important to note that
-  whilst the composite-over-Cat5 baluns can be used for eiher transmitting or receiving over Cat5, the same is not true for the VGA baluns. All the
-  VGA balun outputs on the BTS rack are _transmit only_. A corresponding VGA _receiver_ balun must therefore be used at the other end of their
-  corresponding patched Cat5 run through the building.
-  
-Technically speaking, the Cat5 VGA transmitter baluns in the rack must take in a VGA signal. However, only composite video is routed through the
-multiplexer, matrix switcher, and MUSA patch panel. There are therefore composite-VGA conversion boxes between the VGA baluns and their respective
-MUSA inputs, to achieve this signal conversion.
+- Additional (non-hard-wired) multiplexer inputs. These are in addition to the stage cameras which are hard-wired to multplexer inputs;
+- Multiplexer output;
+- Composite over Cat5 baluns. There are two of these installed in the rack with their composite ends connected to the MUSA patch, and their Cat5 ends
+  connected up to the Cat5 patch. They are bi-directional, meaning that the same balun can be used either as a sender or a receiver;
+- VGA over Cat5 baluns. These are actually two types of balun: a sender (VGA-Cat5) and a receiver (Cat5-VGA). One receiver (for inputting e.g.
+  custom video to the system) and multiple senders are installed in the rack. By means of composite-VGA/VGA-composite conversion boxes (also installed
+  inside the rack), these Cat5 baluns are interfaced to standard composite connections on the MUSA patch, from which they can then interoperate with
+  the rest of the composite video gear.
 
 Qvis DVR:
 ---------
@@ -77,6 +75,10 @@ composite feed in the grid is displayed at its full resolution. This is because 
 
 Importantly, the DVR can send any of its incoming composite video feeds as an RTSP stream over IP 
 (see: https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) by means of its Ethernet port.
+
+In general, the multiplexed feed emanating from this unit should not be used as a substitute for the usual multiplexer. It should be used
+to generate a secondary (possibly higher-resolution, depending on whether the VGA or composite output is used) multiplexed feed in addition to the
+above multiplexer unit, or as a means of transmitting composite streams via an Ethernet network.
 
 **Connections:**
 
@@ -93,8 +95,8 @@ NB: The VGA and composite outputs always show the same feed, just at different r
 
 The unit generates a separate RTSP stream for each of its four input connections.
 
-An easy way to view the network RTSP stream is by using VLC on a computer on the same network as the DVR. 
-In VLC, select "Open Network Stream" and enter the following address:
+An easy way to view the network RTSP stream is by using VLC on a computer on the same network as the DVR. In VLC, select "Open Network Stream" and enter
+the following address:
 
 `rtsp://[username]:[password]@XXX.XXX.XXX.XXX:554/cam/realmonitor?channel=Y&subtype=0`
 
