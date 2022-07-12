@@ -111,6 +111,8 @@ Whereas the BTS VLAN has no access controls, devices connected to Docking must h
 is established. This is best done on an individual basis. As of July 2022, the DVR's Ethernet connection is authorised under John Lucas's BUCS ID.
 It is important to note that personal BUCS device authorizations expire after a year.
 
+For more information on the DVR unit's capability and advanced configuration options, consult the "qvis_izeuss_dvr_manual.pdf" file in this repository.
+
 Links to Box 203:
 -----------------
 
