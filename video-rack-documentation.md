@@ -65,6 +65,8 @@ The following important links are in the MUSA patch:
   custom video to the system) and multiple senders are installed in the rack. By means of composite-VGA/VGA-composite conversion boxes (also installed
   inside the rack), these Cat5 baluns are interfaced to standard composite connections on the MUSA patch, from which they can then interoperate with
   the rest of the composite video gear.
+  
+For a detailed layout of the MUSA patch, see the "MUSA" tab of the "BTS_rack_patch_layout_plan" spreadsheet in this repository.
 
 Qvis DVR:
 ---------
