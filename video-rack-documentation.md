@@ -14,7 +14,7 @@ In its usual mode of operation, the multiplexer outputs a 4x4 grid of the main s
 quarter of the multiplexed output grid is digitallly annotated by the multiplexer. The arrangement/number of video squares in the grid
 can be changed if so desired.
 
-The composite video feeds from the stage cameras are fed directly into the back of the multiplexer on composite inputs dervied (via baluns) from the 
+The composite video feeds from the stage cameras are fed directly into the back of the multiplexer on composite inputs derived (via baluns) from the 
 dedicated stage-to-proj Cat5 camera cable.
 The multiplexer has "pass through" connections for these camera feeds, which means that each camera's connection is also paralleled straight into the MUSA
 patch (see below) for camera-specific patching.
