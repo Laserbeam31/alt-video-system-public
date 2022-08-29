@@ -103,15 +103,14 @@ the following address:
 `rtsp://[username]:[password]@XXX.XXX.XXX.XXX:554/cam/realmonitor?channel=Y&subtype=0`
 
 Where `XXX.XXX.XXX.XXX` is the IP address of the DVR on the particular network to which it is connected, `[username]` is the system username,
-`[password]` is the system password, and `Y` is the number of the composite input to be displayed.
+`[password]` is the system password, and `Y` is the number of the composite input to be displayed. By default, the username and password are both `admin`
 
 Using the BTS Rack's Cat5 patch - through which all the Cat5-capable video gear is patched - the DVR's Ethernet connection may be connected either
 to the BTS VLAN or the BUCS "Docking" network. The latter is very useful since it is effectively the same network as Eduroam, thus meaning that any device
 connected to the Eduroam WiFi can view the RTSP stream from the DVR, when it is also connected to Docking.
 
 Whereas the BTS VLAN has no access controls, devices connected to Docking must have their MAC address authorised on ClearPass before a connection
-is established. This is best done on an individual basis. As of July 2022, the DVR's Ethernet connection is authorised under John Lucas's BUCS ID.
-It is important to note that personal BUCS device authorizations expire after a year.
+is established. This is best done by contacting BUCS.
 
 For more information on the DVR unit's capability and advanced configuration options, consult the "qvis_izeuss_dvr_manual.pdf" file in this repository.
 
