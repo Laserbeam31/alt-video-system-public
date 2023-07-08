@@ -39,4 +39,4 @@ For reduced voltage drop over long runs, the twisted pairs are commoned. Hence w
 **Since the buttons run over the same Cat5e patch as the rest of the ALT networking/video gear, it is imperative that neither they, nor a
 modified balun power cable, get erroneously patched to some other IP/balun device. Even though they all use the same Cat5e connectors,
 this runs the risk of causing major damage. In the context of video systems, it is never safe to assume that two devices are interoperable
-simply because they have the same physical connectors.***
+simply because they have the same physical connectors.**
