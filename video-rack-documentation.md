@@ -2,7 +2,7 @@ Documentation for the BTS Rack ALT Video Handling Gear
 ======================================================
 
 The BTS rack contains video patching, routing, and multiplexing equipment to facilitate the distribution of real-time feeds from the installed
-cameras to different places around the theatre and, if necessary, building. The rack also contains dedicated VGA distribution equipment to facilitate
+cameras to different places around the theatre and, if necessary, building. The rack also contains a section dedicated VGA distribution to facilitate
 connection of computers/projectors for presentation/film-screening purposes.
 
 Multiplexer:
@@ -45,11 +45,13 @@ a smaller 4x4 matrix for switching the VGA connections used when routing VGA sou
 and the 8x8 composite matrix form the backbone of the system's two main components: the CCTV system (composite), and the projection/slideshow system (VGA).
 
 The reason behind splitting the CCTV and presentation systems across two different matrices is twofold: first, it maintains a logical segregation between the two
-systems, given that they serve quite different purposes; second, VGA has a vastly superior image quality compared with composite, so is better suited for presentation
-use - which requires a better image quality than the standard composite signals used for CCTV.
+systems, given that they serve quite different purposes; second, VGA has a vastly superior image quality compared with composite, so is better suited for 
+presentation use - which requires a better image quality than the standard composite signals used for CCTV.
 
-The 8x8 composite video matrix's input and output connections are all brought out on the MUSA patch panel. The I/O from the 4x4 VGA matrix is brought out via a combination
-of the MUSA panel (for bridging to the CCTV system, if necessary; see below), the Cat5 panel (for VGA baluns), and the general Video Panel (see below).
+The 8x8 composite video matrix's input and output connections are all brought out on the MUSA patch panel. The I/O from the 4x4 VGA matrix is brought out 
+via a combination of the MUSA panel (for bridging to the CCTV system, if necessary; see below), the Cat5 panel (for VGA baluns), and the general Video Panel 
+(see below). There is also a hard-wired connection between an output of the 4x4 VGA matrix and the BTS Projector, reflecting the intention that this section
+of the video system is designed for presentation/screening use.
 
 For more information on the 8x8 composite video matrix, see the "extron_crosspoint_matrix_manual.pdf" file in this repository.
 
@@ -57,9 +59,8 @@ MUSA patch:
 -----------
 
 The MUSA patch is the main means of physically patching the CCTV video links from around the theatre to one another, including through devices such as the 
-multiplexer
-and/or 8x8 composite matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at least one connection on the MUSA
-patch to allow it to be dynamically interfaced with the rest of the system.
+multiplexer and/or 8x8 composite matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at 
+least one connection on the MUSA patch to allow it to be dynamically interfaced with the rest of the system.
 
 For commonly-used inter-port links on the MUSA patch, the "U"-shaped adapters are used where possible, since they are neater than leaving MUSA patch leads 
 protruding from the front of the rack.
@@ -137,6 +138,10 @@ its VGA output is sent, within the rack, to the 4x4 VGA matrix. This receiver ba
 
 General-use video panel
 -----------------------
+
+The Video Panel contains direct video connection points to the MUSA panel (for the CCTV system, on a BNC port) and the 4x4 VGA matrix (for the presentation system). 
+The main intention with these ports is for temporary connection of displays etc directly to the rack, possibly during patching, testing, or diagnostics, 
+without the need for intermediate balune.
 
 Links to Box 203:
 -----------------
