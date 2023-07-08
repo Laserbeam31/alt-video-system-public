@@ -2,12 +2,13 @@ Documentation for the BTS Rack ALT Video Handling Gear
 ======================================================
 
 The BTS rack contains video patching, routing, and multiplexing equipment to facilitate the distribution of real-time feeds from the installed
-cameras to different places around the theatre and, if necessary, building.
+cameras to different places around the theatre and, if necessary, building. The rack also contains dedicated VGA distribution equipment to facilitate
+connection of computers/projectors for presentation/film-screening purposes.
 
 Multiplexer:
 ------------
 
-The multiplexer "stitches" together multiple separate incoming composite video feeds into one single composite video output. This is useful for routing
+The multiplexer "stitches together" multiple separate incoming composite video feeds into one single composite video output. This is useful for routing
 multiple video feeds, as one composite stream, to zones such as the SM monitor and the DSM monitor.
 
 In its usual mode of operation, the multiplexer outputs a 4x4 grid of the main stage camera, SR wing camera, SL wing camera, and runaround camera. Each
@@ -19,52 +20,63 @@ dedicated stage-to-proj Cat5 camera cable.
 The multiplexer has "pass through" connections for these camera feeds, which means that each camera's connection is also paralleled straight into the MUSA
 patch (see below) for camera-specific patching.
 
-Two more additional inputs to the multiplexer are also brought through directly to the MUSA patch, so that custom feeds may be inputted for multiplexing 
+Two more additional inputs to the multiplexer are also brought through directly to the MUSA patch, so that custom feeds may be input for multiplexing 
 into a larger grid if so desired.
 
 The multiplexer's combined output is fed into a connection on the MUSA patch, so that this output can be routed to where it is needed.
 
 The unit also has advanced functionality for features better suited to its intended use as a processing station for CCTV cameras. These include the
-ability to trigger a VCR, as well as the ability to input/output signals from an alarm system, and remote control over RS-232/RS-485.
+ability to trigger a separate VCR, as well as the ability to input/output signals from an alarm system, and remote control over RS-232/RS-485.
 
 For more information on the unit's capabilities, see the "zmx_multiplexer_manual.pdf" file in this repository.
 
-Matrix switcher:
+Matrix switchers:
 ----------------
 
-In essence, the matrix switcher can be thought of as an "electronic patch panel". It takes a series of different composite video inputs, and
+In essence, a matrix switcher can be thought of as an "electronic patch panel". It takes a series of different video inputs, and
 can route each input, in its entirety, to one or more of its different outputs.
 
-The matrix input and output connections are brought out on the MUSA patch panel.
-
-To route a given input to certain output(s), press the number corresponding to the input on the top row of matrix buttons. When this button lights up,
-sequentially press the buttons on the row below whose numbers correspond to the outputs to which the input in question is to be routed. To save this
+To route a given input to certain output(s), press the number corresponding to the input on the "inputs" row of matrix buttons. When this button lights up,
+sequentially press the buttons on the "outputs" row whose numbers correspond to the outputs to which this input is to be routed. To save this
 output state, press the "Enter" button to the right of the unit.
 
-For more information, see the "extron_crosspoint_matrix_manual.pdf" file in this repository.
+The Video Rack contains two matrices: the top large 8x8 matrix, used for switching the composite video feeds for the stage CCTV cameras (see below), and
+a smaller 4x4 matrix for switching the VGA connections used when routing VGA sources for presentation purposes. For all intents and purposes, the 4x4 VGA matrix
+and the 8x8 composite matrix form the backbone of the system's two main components: the CCTV system (composite), and the projection/slideshow system (VGA).
+
+The reason behind splitting the CCTV and presentation systems across two different matrices is twofold: first, it maintains a logical segregation between the two
+systems, given that they serve quite different purposes; second, VGA has a vastly superior image quality compared with composite, so is better suited for presentation
+use - which requires a better image quality than the standard composite signals used for CCTV.
+
+The 8x8 composite video matrix's input and output connections are all brought out on the MUSA patch panel. The I/O from the 4x4 VGA matrix is brought out via a combination
+of the MUSA panel (for bridging to the CCTV system, if necessary; see below), the Cat5 panel (for VGA baluns), and the general Video Panel (see below).
+
+For more information on the 8x8 composite video matrix, see the "extron_crosspoint_matrix_manual.pdf" file in this repository.
 
 MUSA patch:
 -----------
 
-The MUSA patch is the main means of physically patching the video links from around the theatre to one another, including through devices such as the 
+The MUSA patch is the main means of physically patching the CCTV video links from around the theatre to one another, including through devices such as the 
 multiplexer
-and/or matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at least one connection on the MUSA
+and/or 8x8 composite matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at least one connection on the MUSA
 patch to allow it to be dynamically interfaced with the rest of the system.
 
 For commonly-used inter-port links on the MUSA patch, the "U"-shaped adapters are used where possible, since they are neater than leaving MUSA patch leads 
-hanging out of the front of the rack.
+protruding from the front of the rack.
 
 The following important links are in the MUSA patch:
 
-- Matrix in/out ports. For patching inputs and outputs to multiple places using the matrix switcher. See above;
+- Matrix in/out ports. For patching inputs and outputs to multiple places using the 8x8 composite matrix switcher. See above;
 - Additional (non-hard-wired) multiplexer inputs. These are in addition to the stage cameras which are hard-wired to multplexer inputs;
 - Multiplexer output;
+- DVR composite output (see below);
 - Composite over Cat5 baluns. There are two of these installed in the rack with their composite ends connected to the MUSA patch, and their Cat5 ends
   connected up to the Cat5 patch. They are bi-directional, meaning that the same balun can be used either as a sender or a receiver;
-- VGA over Cat5 baluns. These are actually two types of balun: a sender (VGA-Cat5) and a receiver (Cat5-VGA). One receiver (for inputting e.g.
-  custom video to the system) and multiple senders are installed in the rack. By means of composite-VGA/VGA-composite conversion boxes (also installed
-  inside the rack), these Cat5 baluns are interfaced to standard composite connections on the MUSA patch, from which they can then interoperate with
-  the rest of the composite video gear.
+- VGA over Cat5 sender baluns. These are formed of two in-rack components: a composite-VGA converter which ingests a composite signal from the MUSA panel, and a VGA over Cat5
+  transmitter balun. The Cat5 output from the balun is brought out to the BTS Rack's Cat5 patch;
+- A single port containing the output from a unidirectional VGA-composite converter, whose input originates from the 4x4 VGA matrix. This acts as a "bridge" between the VGA
+  presentation system (routed through the 4x4 VGA matrix) and the CCTV system (routed through the 8x8 matrix), in the event that a VGA source on the presentation system's
+  4x4 matrix needs to be fed to the CCTV system;
   
 For a detailed layout of the MUSA patch, see the "MUSA" tab of the "BTS_rack_patch_layout_plan" spreadsheet in this repository.
 
@@ -103,7 +115,7 @@ the following address:
 `rtsp://[username]:[password]@XXX.XXX.XXX.XXX:554/cam/realmonitor?channel=Y&subtype=0`
 
 Where `XXX.XXX.XXX.XXX` is the IP address of the DVR on the particular network to which it is connected, `[username]` is the system username,
-`[password]` is the system password, and `Y` is the number of the composite input to be displayed. By default, the username and password are both `admin`
+`[password]` is the system password, and `Y` is the number of the composite input to be displayed. By default, the username and password are both `admin`.
 
 Using the BTS Rack's Cat5 patch - through which all the Cat5-capable video gear is patched - the DVR's Ethernet connection may be connected either
 to the BTS VLAN or the BUCS "Docking" network. The latter is very useful since it is effectively the same network as Eduroam, thus meaning that any device
@@ -113,6 +125,18 @@ Whereas the BTS VLAN has no access controls, devices connected to Docking must h
 is established. This is best done by contacting BUCS.
 
 For more information on the DVR unit's capability and advanced configuration options, consult the "qvis_izeuss_dvr_manual.pdf" file in this repository.
+
+Cat5 patch panel
+----------------
+
+Apart from regular Cat5 tie lines around the ALT, this patch panel contains inputs/outputs from the aforementioned video baluns used in the CCTV system as
+a means of ingesting composite signals and outputing VGA CCTV feeds for stage monitors etc. 
+
+This panel also contains the input to a single Cat5-VGA receiver balun. This forms part of the presentation system rather than the CCTV system, and as such 
+its VGA output is sent, within the rack, to the 4x4 VGA matrix. This receiver balun is intended to be used as a means of connecting laptops etc for presentation use.
+
+General-use video panel
+-----------------------
 
 Links to Box 203:
 -----------------
