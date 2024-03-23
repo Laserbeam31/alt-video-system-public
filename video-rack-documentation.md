@@ -1,9 +1,27 @@
 Documentation for the BTS Rack ALT Video Handling Gear
 ======================================================
 
-The BTS rack contains video patching, routing, and multiplexing equipment to facilitate the distribution of real-time feeds from the installed
-cameras to different places around the theatre and, if necessary, building. The rack also contains a section dedicated VGA distribution to facilitate
-connection of computers/projectors for presentation/film-screening purposes.
+The BTS rack contains video patching, routing, and multiplexing equipment to facilitate the distribution of real-time CCTV cueing feeds from the installed
+cameras to different places around the theatre and, if necessary, building. The rack additionally contains a section dedicated to VGA distribution; this is for
+connection of computers or projectors for presentation/film-screening purposes.
+
+Install cameras:
+-----------------
+
+There are three cameras permanently installed in/around the ALT stage. These are used for live cueing purposes. For example, the DSM may want to check whether the
+stage wings are clear before calling a particular scene. All install cameras are IR-capable, meaning that they can generate a meaningful black-and-white picture 
+in darkness.
+
+- The **FoH camera** is located on the underside of the FoH 2 catwalk. This connects back to the BTS Proj Rack using a combined power+video loom over the auditorium
+  roof sheets;
+- The **wing cameras** are located above the fire exit doors in the stage-left and -right wings. They connect back to the BTS Proj Rack using multiple BNC baluns
+  connected to the twisted pairs of a long Cat5e cable run over the auditorium roof sheets;
+- The **runaround camera** is positioned over the up-stage runaround. It is screwed to the underside of the stage-right air conditioning duct support. This camera
+  uses baluns to share cores in the same stage-Proj Cat5e run as the wing cameras.
+
+The Cat5e cable whose constituent twisted pairs are shared by the wing and runaround cameras is terminated at the stage end in a junction box containing the 
+necessary baluns to break the connection out to three BNC panel-mount connectors, one for each camera. At the Proj end, this cable terminates in baluns 
+installed inside the BTS Rack, leading to BNC ports on the MUSA panel and multiplexer (see below).
 
 Multiplexer:
 ------------
@@ -55,32 +73,6 @@ of the video system is designed for presentation/screening use.
 
 For more information on the 8x8 composite video matrix, see the "extron_crosspoint_matrix_manual.pdf" file in this repository.
 
-MUSA patch:
------------
-
-The MUSA patch is the main means of physically patching the CCTV video links from around the theatre to one another, including through devices such as the 
-multiplexer and/or 8x8 composite matrix switcher. Each camera, composite cable run, balun, and other rack video handling appliance, has at 
-least one connection on the MUSA patch to allow it to be dynamically interfaced with the rest of the system.
-
-For commonly-used inter-port links on the MUSA patch, the "U"-shaped adapters are used where possible, since they are neater than leaving MUSA patch leads 
-protruding from the front of the rack.
-
-The following important links are in the MUSA patch:
-
-- Matrix in/out ports. For patching inputs and outputs to multiple places using the 8x8 composite matrix switcher. See above;
-- Additional (non-hard-wired) multiplexer inputs. These are in addition to the stage cameras which are hard-wired to multplexer inputs;
-- Multiplexer output;
-- DVR composite output (see below);
-- Composite over Cat5 baluns. There are two of these installed in the rack with their composite ends connected to the MUSA patch, and their Cat5 ends
-  connected up to the Cat5 patch. They are bi-directional, meaning that the same balun can be used either as a sender or a receiver;
-- VGA over Cat5 sender baluns. These are formed of two in-rack components: a composite-VGA converter which ingests a composite signal from the MUSA panel, and a VGA over Cat5
-  transmitter balun. The Cat5 output from the balun is brought out to the BTS Rack's Cat5 patch;
-- A single port containing the output from a unidirectional VGA-composite converter, whose input originates from the 4x4 VGA matrix. This acts as a "bridge" between the VGA
-  presentation system (routed through the 4x4 VGA matrix) and the CCTV system (routed through the 8x8 matrix), in the event that a VGA source on the presentation system's
-  4x4 matrix needs to be fed to the CCTV system;
-  
-For a detailed layout of the MUSA patch, see the "MUSA" tab of the "BTS_rack_patch_layout_plan" spreadsheet in this repository.
-
 Qvis DVR:
 ---------
 
@@ -120,12 +112,40 @@ Where `XXX.XXX.XXX.XXX` is the IP address of the DVR on the particular network t
 
 Using the BTS Rack's Cat5 patch - through which all the Cat5-capable video gear is patched - the DVR's Ethernet connection may be connected either
 to the BTS VLAN or the BUCS "Docking" network. The latter is very useful since it is effectively the same network as Eduroam, thus meaning that any device
-connected to the Eduroam WiFi can view the RTSP stream from the DVR, when it is also connected to Docking.
+connected to the Eduroam WiFi can view the RTSP stream from the DVR.
 
 Whereas the BTS VLAN has no access controls, devices connected to Docking must have their MAC address authorised on ClearPass before a connection
 is established. This is best done by contacting BUCS.
 
 For more information on the DVR unit's capability and advanced configuration options, consult the "qvis_izeuss_dvr_manual.pdf" file in this repository.
+
+MUSA patch:
+-----------
+
+MUSA connectors may be regarded as "easily pluggable BNC". They are a coaxial (coax) connector with no latch, thus allowing easy patching.
+
+The MUSA patch is the main means of physically patching the CCTV video links from around the theatre to one another, including through devices such as the 
+multiplexer and/or 8x8 composite matrix switcher. Each camera, composite cable run, BNC balun, and other in-rack CCTV appliance, has at 
+least one connection on the MUSA patch to allow it to be dynamically interfaced with the rest of the system.
+
+For commonly-used inter-port MUSA links, the "U"-shaped rigid adapters are used where possible, since they are neater than leaving patch leads 
+protruding from the front of the rack.
+
+The following important links are in the MUSA patch:
+
+- Matrix in/out ports. For patching inputs and outputs to multiple places using the 8x8 composite matrix switcher. See above;
+- Additional (non-hard-wired) multiplexer inputs. These are in addition to the stage cameras which are hard-wired to multplexer inputs;
+- Multiplexer output;
+- DVR composite output;
+- Composite over Cat5 baluns. There are two of these installed in the rack with their composite ends connected to the MUSA patch, and their Cat5 ends
+  connected up to the Cat5 patch. They are bi-directional, meaning that the same balun can be used either as a sender or a receiver;
+- VGA over Cat5 sender baluns. These are formed of two in-rack components: a composite-VGA converter which ingests a composite signal from the MUSA panel, and a VGA over Cat5
+  transmitter balun. The Cat5 output from this balun is then brought out to the BTS Rack's Cat5 patch;
+- A single port containing the output from a unidirectional VGA-composite converter, whose input originates from the 4x4 VGA matrix. This acts as a "bridge" between the VGA
+  presentation system (routed through the 4x4 VGA matrix) and the CCTV system (routed through the 8x8 matrix), in the event that a VGA source on the presentation system's
+  4x4 matrix needs to be fed to the CCTV system;
+  
+For a detailed layout of the MUSA patch, see the "MUSA" tab of the "BTS_rack_patch_layout_plan" spreadsheet in this repository.
 
 Cat5 patch panel
 ----------------
